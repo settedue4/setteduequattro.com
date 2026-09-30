@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- VERIFICA PROPRIETÀ GOOGLE SEARCH CONSOLE -->
+    <meta name="google-site-verification" content="4Pdq4O8PasuFVSusqd0e8zVMnuml2sv6-M099KHEQbY" />
+    
+    <!-- TITOLO E DESCRIZIONE PER GOOGLE -->
+    <title>Ristorante Pizzeria Setteduequattro | Ispra (VA)</title>
+    <meta name="description" content="Ristorante Pizzeria Setteduequattro ad Ispra (VA). Pizze artigianali con lievitazione 48h, piatti di mare e cucina tradizionale. Prenota un tavolo online!">
+    <meta name="keywords" content="Ristorante Ispra, Pizzeria Ispra, Setteduequattro, Pizza 48 ore lievitazione, Prenotazione ristorante Ispra">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH (Anteprima per WhatsApp, Facebook e Social) -->
+    <meta property="og:title" content="Ristorante Pizzeria Setteduequattro | Ispra (VA)">
+    <meta property="og:description" content="Gusto autentico e tradizione italiana a Ispra. Pizze d'eccellenza e cucina tradizionale. Prenota il tuo tavolo!">
+    <meta property="og:image" content="https://settedue4.com/img/LOGO%20SETTEDUEQUATTRO.png">
+    <meta property="og:url" content="https://settedue4.com">
+    <meta property="og:type" content="website">
+
+    <!-- CSS E FONT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#2C5E3B',    /* Verde Bosco */
+                            sage: '#BDD1C1',    /* Verde Salvia */
+                            soft: '#F3F7F4',    /* Sfondo verde leggero */
+                            border: '#E1ECE3',  /* Bordi delicati */
+                            text: '#1F3325'     /* Testo scuro */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #main, #content-wrap, .site-content, .entry-content {
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin: 0 !important;
+        }
+        .tab-btn.active {
+            background-color: #2C5E3B;
+            color: #ffffff;
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-brand-text">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-sage/40 shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo Header Immagine -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo Sette24" class="h-16 w-auto object-contain group-hover:scale-105 transition-transform">
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Home</a>
+                    <a href="menu.html" class="text-sm font-semibold text-brand-dark border-b-2 border-brand-dark pb-0.5 transition-colors">Menu</a>
+                    <a href="index.html#chi-siamo" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Chi Siamo</a>
+                    <a href="index.html#orari-contatti" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Orari &amp; Contatti</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <button onclick="openBookingModal()" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-dark hover:bg-emerald-900 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-regular font-normal fa-calendar-check mr-2"></i> Prenota un Tavolo
+                    </button>
+                </div>
+
+                <!-- Icone Social e Pulsante Menu a Tre Righe -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://www.facebook.com/SETTEDUEQUATTRO/?locale=it_IT" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 rounded-full bg-brand-soft text-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="https://www.instagram.com/settedue4/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-full bg-brand-soft text-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Apri menu" class="p-2.5 rounded-lg text-brand-dark hover:bg-brand-soft transition-colors focus:outline-none ml-1">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu a tendina mobile -->
+        <div id="mobile-menu" class="hidden bg-white border-b border-brand-border px-4 pt-2 pb-6 space-y-3 transition-all">
+            <a href="index.html#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Home</a>
+            <a href="menu.html" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold text-brand-dark bg-brand-soft">Menu</a>
+            <a href="index.html#chi-siamo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Chi Siamo</a>
+            <a href="index.html#orari-contatti" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Orari &amp; Contatti</a>
+            <div class="pt-2">
+                <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full py-3 rounded-xl font-semibold text-white bg-brand-dark hover:bg-emerald-900 shadow-md transition-colors text-center block">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Prenota un Tavolo
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEZIONE HERO MENU -->
+    <section class="relative bg-gradient-to-b from-brand-soft via-white to-white py-16 lg:py-20 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            
+            <!-- Immagine Grande al Centro -->
+            <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo Grande Sette24" class="h-32 sm:h-40 md:h-48 w-auto object-contain mb-4 drop-shadow-md">
+            
+            <!-- Sotto: Ristorante & Pizzeria -->
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-brand-dark tracking-widest uppercase mb-4">
+                Ristorante &amp; Pizzeria
+            </h1>
+
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-dark bg-white border border-brand-sage px-3.5 py-1.5 rounded-full inline-block mb-3 shadow-xs">Il Nostro Listino Completo</span>
+            
+            <p class="text-base sm:text-lg text-brand-text/80 max-w-2xl mx-auto">
+                Scopri tutti i nostri antipasti, primi, secondi, pizze, dolci e la nostra ricca selezione di vini e birre.
+            </p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-xs font-medium text-brand-dark">
+                <span class="bg-brand-soft px-3 py-1.5 rounded-lg border border-brand-sage/50"><i class="fa-solid fa-utensils mr-1"></i> Coperto: € 2,00</span>
+                <span class="bg-brand-soft px-3 py-1.5 rounded-lg border border-brand-sage/50"><i class="fa-solid fa-wifi mr-1"></i> Wi-Fi: SETTEDUEQUATROCLIENTI (PSW: CLIENTI724)</span>
+            </div>
+
+            <!-- BLOCCO MENU PER STRANIERI -->
+            <div class="mt-6 flex flex-col items-center">
+                <a href="https://menuforma.com/m/setteduequattro-pizza-cucina?mode=display" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-brand-dark hover:bg-emerald-900 shadow-md transition-all transform hover:scale-105">
+                    <i class="fa-solid fa-globe mr-2"></i> MENU per stranieri
+                </a>
+                <p class="mt-2 text-xs text-brand-text/75 font-medium italic">
+                    Click here for menu in other languages
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTENUTO DEL MENU -->
+    <section class="pb-24 pt-4 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tab di Navigazione Categorie -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="filterCategory('antipasti')" id="btn-antipasti" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Antipasti</button>
+                <button onclick="filterCategory('primi')" id="btn-primi" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Primi</button>
+                <button onclick="filterCategory('secondi')" id="btn-secondi" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Secondi</button>
+                <button onclick="filterCategory('contorni')" id="btn-contorni" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Contorni</button>
+                <button onclick="filterCategory('pizze')" id="btn-pizze" class="tab-btn active px-5 py-2.5 rounded-full text-xs font-bold border border-brand-sage transition-all shadow-xs">Pizze &amp; Calzoni</button>
+                <button onclick="filterCategory('dolci')" id="btn-dolci" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Dolci</button>
+                <button onclick="filterCategory('bevande')" id="btn-bevande" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Bevande &amp; Drink</button>
+                <button onclick="filterCategory('birreria')" id="btn-birreria" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Birreria</button>
+                <button onclick="filterCategory('vini')" id="btn-vini" class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold bg-white text-brand-dark border border-brand-sage transition-all shadow-xs">Vini &amp; Bollicine</button>
+            </div>
+
+            <!-- 1. ANTIPASTI -->
+            <div id="category-antipasti" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-plate-wheat text-brand-dark"></i> Antipasti</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Totanelli</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Arrosticino di totano infarinato e fritto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Velo Rosso</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 14,00</span></div><p class="text-xs text-brand-text/75">Carpaccio di bresaola IGP, rucola, grana a scaglie, olio EVO.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Gioello Fritto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div><p class="text-xs text-brand-text/75">Culatello di Zibello e gnocco fritto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Blu Mare</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Insalata di molluschi, totani, polipo, gamberetti, pomodorini, olive, limone, arancia e prezzemolo.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">La Dieta del Pirata</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 16,00</span></div><p class="text-xs text-brand-text/75">Polpo tiepido, patate, olive taggiasche, prezzemolo.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Bacio Salamastro</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 13,00</span></div><p class="text-xs text-brand-text/75">Souté di cozze, salsa di pomodoro, olio, aglio, prezzemolo.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tagliere 724</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Il nostro tagliere di salumi nostrani e formaggi misti (selezione variabile).</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Rosso Langa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 16,00</span></div><p class="text-xs text-brand-text/75">Carne bovina Fassona, olio, sale, pepe, rucola e bufala.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. PRIMI -->
+            <div id="category-primi" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-bowl-food text-brand-dark"></i> Primi Piatti</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Pici Nero</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Pasta fresca di pici con cacio e pepe, con pecorino romano e pepe nero a grani.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Lago Blu (Minimo 2 Persone)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Risotto cremoso accompagnato da filetti di persico leggermente infarinati e rosolati nel burro con salvia.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Perlamaris</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 17,00</span></div><p class="text-xs text-brand-text/75">Scialatielli freschi assortiti di frutti di mare saltati in padella, nappati con il loro fondo di cottura.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tagliaregia</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Tagliatelle fresche condite con un ricco ragù alla bolognese.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Perlarossa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 11,00</span></div><p class="text-xs text-brand-text/75">Tagliatelle fresche con vongole e pomodorini leggermente scottati, il tutto insaporito dal loro fondo di cottura.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Boloprestige</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Tagliatelle fresche condite con un ragù di cinghiale, chianina o capriolo, cucinato per esaltarne il sapore aromatico.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. SECONDI -->
+            <div id="category-secondi" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-fire-burner text-brand-dark"></i> Secondi Piatti</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">La Vela Dorata</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 17,00</span></div><p class="text-xs text-brand-text/75">Filetto di branzino in crosta di patate servito con pomodorini.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Furia di Brace</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 17,00</span></div><p class="text-xs text-brand-text/75">Aletta di scottona cotta in forno a legna.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Golden Bite</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div><p class="text-xs text-brand-text/75">Filetto di pesce persico impanato con uova e pangrattato.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Quella Vera</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 17,00</span></div><p class="text-xs text-brand-text/75">Lomba di lonza alla milanese, servita con rucola e pomodorini.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Gran Fritto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 19,00</span></div><p class="text-xs text-brand-text/75">Frittura di calamari, ciuffetti, gamberi e latterino, in farina 00 e fritti.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Dacci un Taglio</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div><p class="text-xs text-brand-text/75">Tagliata di bovino adulto di razza piemontese disponibile in 2 varianti: Ai funghi porcini o Rucola e grana.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CONTORNI -->
+            <div id="category-contorni" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-carrot text-brand-dark"></i> Contorni, Insalate &amp; Specialità</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Friarielli</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 6,00</span></div><p class="text-xs text-brand-text/75">Friarielli saltati in padella.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Gnocco Fritto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Gnocco fritto realizzato da noi.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Caprese</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 11,00</span></div><p class="text-xs text-brand-text/75">Insalata con mozzarella di bufala, pomodoro e basilico.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Insalata di Pollo</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 13,00</span></div><p class="text-xs text-brand-text/75">Insalata mista con pollo fritto, pomodoro, bacon croccante e salsa yogurt.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Insalata Livigno</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 14,00</span></div><p class="text-xs text-brand-text/75">Insalata mista con scaglie di grana, pomodorini, rucola e bresaola.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Insalata Mista</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Insalata mista.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Insalata Verde</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Insalata verde.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Patatine Fritte</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 4,00</span></div><p class="text-xs text-brand-text/75">Patatine fritte.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Verdure Grigliate</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Mix di verdure grigliate tra melanzane, peperoni, zucchine.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. PIZZE -->
+            <div id="category-pizze" class="space-y-12">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-pizza-slice text-brand-dark"></i> Le Nostre Pizze, Focacce &amp; Calzoni</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Margherita</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div><p class="text-xs text-brand-text/75">Pomodoro e mozzarella fiordilatte.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">F. il Dolce</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Base rita, rucola, pomodoro fresco e ricotta.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Diavola</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Base rita, salame piccante.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Germania</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Base rita, würstel + richiesta di patatine.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Verdure</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, cipolle, spinaci, grana, zucchine, peperoni e melanzane.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Angelo</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, cotto, rucola e grana.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Napoli</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 8,00</span></div><p class="text-xs text-brand-text/75">Base rita, acciughe e origano.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">F. di Notte</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, zola, uovo, acciughe, aglio, cipolle, peperoni e salame piccante.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Micheid</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, crudo.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Campana</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">4 Stagioni</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, cotto, funghi, carciofi e peperoni.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Barese</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, ricotta, spinaci e basilico.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">F. il Pazzo</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Base rita, salsiccia, peperoni, tonno e pancetta.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Scivola</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Base rita, würstel, tonno e salame piccante.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Caprese</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, pomodorini, basilico.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Rustica</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Base rita, pancetta, cipolle e grana.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Siciliana</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, salame piccante.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Capricciosa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, cotto, funghi, carciofi, olive e acciughe.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Sfiziosa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, salame piccante e zola.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Speedy</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, salame piccante, fagioli e cipolle.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tartufata</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, cotto, rucola e grana.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cotto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 8,00</span></div><p class="text-xs text-brand-text/75">Base rita, cotto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tonno e Cipolle</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Tonno e cipolle.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cotto e Funghi</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Base rita, cotto e funghi.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">4 Formaggi</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base rita, zola, ricotta e grana.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Valtellina</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Pomodoro, bufala, ricotta, spinaci e basilico.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Romana</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Base rita, crudo, rucola e grana.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Marinara</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 6,00</span></div><p class="text-xs text-brand-text/75">Pomodoro e aglio.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Focaccia</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Con olio e rosmarino.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">La Gorgonzola</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Mozzarella fiordilatte, zola e mele.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Calzone Liscio</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 8,00</span></div><p class="text-xs text-brand-text/75">Pomodoro e mozzarella fiordilatte, cotto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Calzone Farcito</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 12,00</span></div><p class="text-xs text-brand-text/75">Base calzone liscio, funghi, peperoni e carciofi.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Montegeneroso</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 9,00</span></div><p class="text-xs text-brand-text/75">Pomodorini, funghi porcini, bresaola, scaglie di grana e mozzarella fiordilatte.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Calzone Sandro</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Base calzone liscio, cotto, ricotta, uovo, olive e basilico.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. DOLCI -->
+            <div id="category-dolci" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-cake-candles text-brand-dark"></i> I Nostri Dolci</h2>
+                    <p class="text-xs text-red-600 font-semibold mb-4">* TUTTI I DOLCI CONTENGONO LATTOSIO</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Affogato</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Affogato, gelato alla panna, con caffè o liquore.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Coppa Gelato</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Gusti variabili, chiedere al cameriere.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Crema Catalana</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Senza glutine, consultare scheda prodotto per allergie.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Panna Cotta</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Cioccolato, frutti di bosco, caramello, pistacchio. Consultare scheda prodotto per allergie.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Semifreddo</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Semifreddo al torroncino, consultare scheda prodotto per allergie.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Sorbetto (Minimo 2 Persone)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Sorbetto al classico limone fatto in casa da noi.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tartufo</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Tartufo nero oppure bianco, per allergie consultare scheda prodotto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tiramisù</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Tiramisù classico fatto in casa.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Tortino</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div><p class="text-xs text-brand-text/75">Tortino caldo al cioccolato con gelato.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. BEVANDE & DRINK -->
+            <div id="category-bevande" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-martini-glass text-brand-dark"></i> Bevande, Caffetteria &amp; Drinks</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Acqua (0.75L)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 2,50</span></div><p class="text-xs text-brand-text/75">Naturale / Gasata.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Bibite</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 3,00</span></div><p class="text-xs text-brand-text/75">Coca Cola, Fanta, Sprite, Succhi, Lemon Soda, Chinotto.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Caffè</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 1,50</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Macchiato</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 1,50</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Corretto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 2,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cappuccino</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 2,50</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Gin Tonic</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Gin tonic base.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Aperol Spritz / Campari Spritz</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Negroni</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 8,00</span></div><p class="text-xs text-brand-text/75">Negroni classico, sbagliato e americano.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Rum</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 10,00</span></div><p class="text-xs text-brand-text/75">Rum base.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Whisky</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 8,00</span></div><p class="text-xs text-brand-text/75">JD Classic, JD Rye, JD Fire, JD Apple, JD Honey.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Liquori</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 3,50</span></div><p class="text-xs text-brand-text/75">Liquori di amari, nazionali ed esteri.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. BIRRERIA -->
+            <div id="category-birreria" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-beer-mug-empty text-brand-dark"></i> La Birreria</h2>
+                    <p class="text-xs text-red-600 font-semibold mb-4">* TUTTE LE BIRRE CONTENGONO GLUTINE</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Media Rossa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 6,00</span></div><p class="text-xs text-brand-text/75">Birra Menabrea Rossa alla spina.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Piccola Rossa</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 4,00</span></div><p class="text-xs text-brand-text/75">Birra piccola Menabrea Rossa alla spina.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Media Chiara</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 6,00</span></div><p class="text-xs text-brand-text/75">Birra Menabrea Chiara alla spina oppure (Panachè).</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Piccola Chiara</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 4,00</span></div><p class="text-xs text-brand-text/75">Birra piccola Menabrea Chiara alla spina oppure (Panachè).</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cordelia</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Birra IPA Non Filtrata</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div><p class="text-xs text-brand-text/75">Theresianer da 0,5L.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Guglielmo (Birra non filtrata)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div><p class="text-xs text-brand-text/75">Theresianer da 0,5L.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Weiss</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Lager</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Birra non filtrata Theresianer da 0,5L.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Amleto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 7,00</span></div><p class="text-xs text-brand-text/75">Birra rossa non filtrata Theresianer da 0,5L.</p></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Warsteiner Zero (Alcohol Free)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 5,00</span></div><p class="text-xs text-brand-text/75">Birra Warsteiner Zero alcohol.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. VINI -->
+            <div id="category-vini" class="space-y-12 hidden">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-brand-dark mb-6 pb-2 border-b-2 border-brand-sage/40 flex items-center gap-3"><i class="fa-solid fa-wine-bottle text-brand-dark"></i> Vini, Rossi, Bianchi &amp; Bollicine</h2>
+                    <p class="text-xs text-red-600 font-semibold mb-6">* TUTTI I VINI CONTENGONO SOLFITI</p>
+                    
+                    <h3 class="text-lg font-bold text-brand-dark mb-4">Vini Bianchi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Chardonnay</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Falanghina</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Gewurztraminer</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Lugana</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Muller Thurgau</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Passerina</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Pecorino</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Ribolla Gialla</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Pinot Grigio</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Riesling</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Conte Bacaro Rosè (Leggermente frizzante)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Vino della Casa (Bianco/Rosso)</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">Da € 5,00 a € 12,00</span></div></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-brand-dark mb-4">Vini Rossi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Amarone Valpolicella</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 45,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Barbera</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cabernet Franc</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Cabernet Sauvignon</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Chianti</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Chianti in Fiasco</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Merlot</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Montepulciano</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Morellino di Scansano</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Negroamaro</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Riposato Veneto</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Lagrein Venezie</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Refosco Rosso</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Susumaniello</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Teroldego</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Valpolicella Classico</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Valpolicella Superiore</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 35,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Valpolicella Ripasso C.S.</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 40,00</span></div></div>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-brand-dark mb-4">Bollicine</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Moscato Bianco</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Moscato Rosso</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 18,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Prosecco Batiso</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 20,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Spumante Dry</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 15,00</span></div></div>
+                        <div class="p-5 rounded-2xl bg-brand-soft/40 border border-brand-sage/40"><div class="flex justify-between items-start gap-4 mb-2"><h3 class="font-bold text-brand-dark text-lg">Stenbock</h3><span class="font-bold text-brand-dark text-base bg-white px-3 py-1 rounded-lg border border-brand-sage/40">€ 25,00</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white border-t border-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3">
+                    <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo Footer" class="h-12 w-auto object-contain brightness-0 invert">
+                    <p class="text-xs text-brand-sage/80 leading-relaxed">Ristorante &amp; Pizzeria. Gusto autentico, piatti tradizionali e pizze di qualità.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Link Rapidi</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html#home" class="hover:text-brand-sage transition-colors">Home</a></li>
+                        <li><a href="index.html#chi-siamo" class="hover:text-brand-sage transition-colors">Chi Siamo</a></li>
+                        <li><a href="menu.html" class="hover:text-brand-sage transition-colors">Menu</a></li>
+                        <li><a href="index.html#orari-contatti" class="hover:text-brand-sage transition-colors">Orari &amp; Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Info &amp; Servizi</h4>
+                    <ul class="space-y-2 text-xs text-brand-sage/90">
+                        <li><i class="fa-solid fa-utensils mr-2"></i> Coperto: € 2,00</li>
+                        <li><i class="fa-solid fa-wifi mr-2"></i> Wi-Fi: SETTEDUEQUATROCLIENTI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Seguici</h4>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/settedue4/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage hover:text-brand-dark transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/SETTEDUEQUATTRO/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage hover:text-brand-dark transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-brand-sage/60">
+                <div>© 2026 Setteduequattro Ristorante &amp; Pizzeria. Tutti i diritti riservati.</div>
+            </div>
+        </div>
+    </footer>
+
+   <!-- Modale Prenotazione Modificata -->
+<div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition-opacity">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-brand-sage relative shadow-2xl">
+        <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-brand-soft flex items-center justify-center text-brand-dark hover:bg-brand-sage transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <div class="text-center mb-6">
+            <span class="text-sm font-bold uppercase tracking-wider text-brand-dark/70 block mb-1">Prenotazione Online</span>
+            <h3 class="text-2xl font-bold text-brand-dark">Prenota un Tavolo</h3>
+        </div>
+
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+            <!-- Nome e Cognome -->
+            <div>
+                <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Nome e Cognome</label>
+                <input type="text" name="nome" required="" placeholder="Mario Rossi" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+            </div>
+
+            <!-- Campo Email Aggiunto (Con il tuo stesso stile Tailwind) -->
+            <div>
+                <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Email</label>
+                <input type="email" name="email" required="" placeholder="mario.rossi@gmail.com" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+            </div>
+
+            <!-- Telefono e Ospiti -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Telefono</label>
+                    <input type="tel" name="telefono" required="" placeholder="+39 333 1234567" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Ospiti</label>
+                    <select name="ospiti" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                        <option value="2 Persone">2 Persone</option>
+                        <option value="3 Persone">3 Persone</option>
+                        <option value="4 Persone">4 Persone</option>
+                        <option value="5+ Persone">5+ Persone</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Data e Orario -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Data</label>
+                    <input type="date" name="data" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Orario</label>
+                    <select name="orario" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                        <option value="12:30">12:30 (Pranzo)</option>
+                        <option value="13:30">13:30 (Pranzo)</option>
+                        <option value="19:30">19:30 (Cena)</option>
+                        <option value="20:30">20:30 (Cena)</option>
+                        <option value="21:30">21:30 (Cena)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl font-bold text-white bg-brand-dark hover:bg-emerald-900 shadow-md transition-all text-sm mt-2">Conferma Prenotazione</button>
+        </form>
+
+        <div id="booking-success" class="hidden text-center py-6">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-check"></i></div>
+            <h4 class="text-xl font-bold text-brand-dark mb-2">Prenotazione Inviata!</h4>
+            <p class="text-xs text-brand-text/80 mb-6">Grazie! Ti abbiamo inviato una conferma via email.</p>
+            <button onclick="closeBookingModal()" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-dark text-xs">Chiudi</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Funzione per filtrare le categorie del menu
+    function filterCategory(category) {
+        const categories = ['antipasti', 'primi', 'secondi', 'contorni', 'pizze', 'dolci', 'bevande', 'birreria', 'vini'];
+        
+        // 1. Nascondi tutti i blocchi delle categorie
+        categories.forEach(cat => {
+            const el = document.getElementById('category-' + cat);
+            if (el) {
+                el.classList.add('hidden');
+            }
+        });
+
+        // 2. Disattiva lo stile visivo di tutti i pulsanti delle categorie
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.add('bg-white', 'text-brand-dark');
+        });
+
+        // 3. Mostra la categoria cliccata
+        const selectedCat = document.getElementById('category-' + category);
+        if (selectedCat) {
+            selectedCat.classList.remove('hidden');
+        }
+
+        // 4. Attiva lo stile visivo sul pulsante cliccato
+        const activeBtn = document.getElementById('btn-' + category);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('bg-white', 'text-brand-dark');
+        }
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        menu.classList.toggle('hidden');
+        if (menu.classList.contains('hidden')) {
+            icon.className = 'fa-solid fa-bars text-2xl';
+        } else {
+            icon.className = 'fa-solid fa-xmark text-2xl';
+        }
+    }
+
+    function openBookingModal() {
+        document.getElementById('booking-modal').classList.remove('hidden');
+        document.body.classList.add('modal-active');
+    }
+
+    function closeBookingModal() {
+        document.getElementById('booking-modal').classList.add('hidden');
+        document.body.classList.remove('modal-active');
+        setTimeout(() => {
+            document.getElementById('booking-form').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('hidden');
+            document.getElementById('booking-form').reset();
+        }, 300);
+    }
+
+    function handleBookingSubmit(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('booking-form');
+        const btn = document.getElementById('submit-btn');
+        const formData = new FormData(form);
+
+        btn.innerText = 'Invio in corso...';
+        btn.disabled = true;
+
+        // Percorso aggiornato con il tema "twentytwentyfive"
+        fetch('/wp-content/themes/twentytwentyfive/invia.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore HTTP ' + response.status + ' (' + response.statusText + ')');
+            }
+            return response.text();
+        })
+        .then(data => {
+            btn.innerText = 'Conferma Prenotazione';
+            btn.disabled = false;
+            
+            // Verifica la risposta del PHP
+            if (data.trim() === "OK") {
+                // Mostra la schermata di conferma
+                document.getElementById('booking-form').classList.add('hidden');
+                document.getElementById('booking-success').classList.remove('hidden');
+            } else {
+                alert('Si è verificato un problema con l\'invio:\n\n' + data);
+            }
+        })
+        .catch(error => {
+            console.error('Errore durante la prenotazione:', error);
+            alert('Si è verificato un errore di connessione:\n' + error.message);
+            btn.innerText = 'Conferma Prenotazione';
+            btn.disabled = false;
+        });
+    }
+</script>
+</body>
+</html>
