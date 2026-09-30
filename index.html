@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- VERIFICA PROPRIETÀ GOOGLE SEARCH CONSOLE -->
+    <meta name="google-site-verification" content="4Pdq4O8PasuFVSusqd0e8zVMnuml2sv6-M099KHEQbY" />
+    
+    <!-- TITOLO E DESCRIZIONE PER GOOGLE -->
+    <title>Ristorante Pizzeria Setteduequattro | Ispra (VA)</title>
+	<link rel="icon" type="image/jpeg" href="/img/favicon.jpg">
+    <meta name="description" content="Ristorante Pizzeria Setteduequattro ad Ispra (VA). Pizze artigianali con lievitazione 48h, piatti di mare e cucina tradizionale. Prenota un tavolo online!">
+    <meta name="keywords" content="Ristorante Ispra, Pizzeria Ispra, Setteduequattro, Pizza 48 ore lievitazione, Prenotazione ristorante Ispra">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH (Anteprima per WhatsApp, Facebook e Social) -->
+    <meta property="og:title" content="Ristorante Pizzeria Setteduequattro | Ispra (VA)">
+    <meta property="og:description" content="Gusto autentico e tradizione italiana a Ispra. Pizze d'eccellenza e cucina tradizionale. Prenota il tuo tavolo!">
+    <meta property="og:image" content="https://settedue4.com/img/LOGO%20SETTEDUEQUATTRO.png">
+    <meta property="og:url" content="https://settedue4.com">
+    <meta property="og:type" content="website">
+
+    <!-- CSS E FONT -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#2C5E3B',    /* Verde Bosco */
+                            sage: '#BDD1C1',    /* Verde Salvia */
+                            soft: '#F3F7F4',    /* Sfondo verde leggero */
+                            border: '#E1ECE3',  /* Bordi delicati */
+                            text: '#1F3325'     /* Testo scuro */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #main, #content-wrap, .site-content, .entry-content {
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin: 0 !important;
+        }
+        .tab-btn.active {
+            background-color: #2C5E3B;
+            color: #ffffff;
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-brand-text">
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-sage/40 shadow-sm transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            
+            <!-- Logo Header -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo Sette24" class="h-16 w-auto object-contain group-hover:scale-105 transition-transform">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Home</a>
+                <a href="menu.html" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Menu</a>
+                <a href="#chi-siamo" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Chi Siamo</a>
+                <a href="#orari-contatti" class="text-sm font-semibold text-brand-text hover:text-brand-dark transition-colors">Orari &amp; Contatti</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <button onclick="openBookingModal()" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-dark hover:bg-emerald-900 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-regular font-normal fa-calendar-check mr-2"></i> Prenota un Tavolo
+                </button>
+            </div>
+
+            <!-- Icone Social e Pulsante Menu a Tre Righe -->
+            <div class="flex items-center space-x-3">
+                <a href="https://www.facebook.com/SETTEDUEQUATTRO/?locale=it_IT" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 rounded-full bg-brand-soft text-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors">
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a href="https://www.instagram.com/settedue4/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-full bg-brand-soft text-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-colors">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Apri menu" class="p-2.5 rounded-lg text-brand-dark hover:bg-brand-soft transition-colors focus:outline-none ml-1">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu a tendina a comparsa mobile -->
+    <div id="mobile-menu" class="hidden bg-white border-b border-brand-border px-4 pt-2 pb-6 space-y-3 transition-all">
+        <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Home</a>
+        <a href="menu.html" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Menu</a>
+        <a href="#chi-siamo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Chi Siamo</a>
+        <a href="#orari-contatti" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-base font-semibold hover:bg-brand-soft hover:text-brand-dark">Orari &amp; Contatti</a>
+        <div class="pt-2">
+            <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full py-3 rounded-xl font-semibold text-white bg-brand-dark hover:bg-emerald-900 shadow-md transition-colors text-center block">
+                <i class="fa-regular fa-calendar-check mr-2"></i> Prenota un Tavolo
+            </button>
+        </div>
+    </div>
+</header>
+
+<section id="home" class="relative bg-gradient-to-b from-brand-soft via-white to-white py-20 lg:py-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+                <div class="mb-4">
+                    <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Sette24 Logo" class="h-24 sm:h-32 w-auto object-contain">
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-sage/60 text-brand-dark text-xs font-bold uppercase tracking-wider shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-brand-dark animate-pulse"></span>
+                    Pizzeria &amp; Ristorante Tradizionale
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight tracking-tight">
+                    Gusto Autentico &amp; Tradizione Italiana.
+                </h1>
+
+                <p class="text-base sm:text-lg text-brand-text/80 max-w-2xl leading-relaxed">
+                    Un'esperienza culinaria unica nel cuore della tradizione. Pizze cotte a regola d'arte e piatti genuini preparati ogni giorno per farti vivere il vero sapore di casa.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                    <button onclick="openBookingModal()" class="px-8 py-4 rounded-full font-bold text-white bg-brand-dark hover:bg-emerald-900 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center">
+                        Prenota un Tavolo
+                    </button>
+                    <a href="menu.html" class="px-8 py-4 rounded-full font-bold text-brand-dark bg-white border-2 border-brand-sage hover:bg-brand-soft transition-all text-center">
+                        Scopri il Menu
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-brand-sage/40">
+                    <div>
+                        <div class="text-2xl font-extrabold text-brand-dark">100%</div>
+                        <div class="text-xs sm:text-sm text-brand-text/70">Qualità Artigianale</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-brand-dark">48h</div>
+                        <div class="text-xs sm:text-sm text-brand-text/70">Lievitazione Impasto</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-brand-dark">4.9★</div>
+                        <div class="text-xs sm:text-sm text-brand-text/70">Recensioni Clienti</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <div class="absolute -inset-3 bg-brand-sage/40 rounded-3xl transform rotate-2"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-brand-sage">
+                        <img src="https://settedue4.com/wp-content/uploads/2026/07/Fritto-Misto3.webp" alt="Fritto Misto di Pesce" class="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500">
+                        <div class="p-6 bg-white">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-dark bg-brand-soft px-3 py-1 rounded-full">Specialità di Mare</span>
+                                <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo" class="h-8 w-auto object-contain">
+                            </div>
+                            <h3 class="text-lg font-bold text-brand-dark">Fritto Misto Tradizionale</h3>
+                            <p class="text-xs text-brand-text/70 mt-1">Delizioso mix dorato e croccante di molluschi, crostacei e latterini freschi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Chi Siamo -->
+<section id="chi-siamo" class="py-20 bg-white border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-sm font-bold uppercase tracking-wider text-brand-dark/70 block mb-1">La Nostra Storia</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-1">Passione per la Buona Cucina</h2>
+            <div class="w-16 h-1 bg-brand-sage mx-auto my-4 rounded-full"></div>
+            <p class="text-base sm:text-lg text-brand-text/80 leading-relaxed">
+                Setteduequattro nasce dal desiderio di creare un punto d'incontro accogliente dove gustare un'ottima pizza in compagnia o lasciarsi conquistare dai piatti tipici della nostra cucina. Unisciti a noi per riscoprire il piacere dello stare a tavola.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl bg-brand-soft/60 border border-brand-sage/50 text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-white text-brand-dark rounded-2xl border border-brand-sage flex items-center justify-center text-2xl mx-auto mb-6 shadow-xs"><i class="fa-solid fa-pizza-slice"></i></div>
+                <h3 class="text-xl font-bold text-brand-dark mb-3">Pizza Perfetta</h3>
+                <p class="text-sm text-brand-text/75 leading-relaxed">Un impasto leggero, soffice e digeribile, preparato con cura e cotto a puntino.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-brand-soft/60 border border-brand-sage/50 text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-white text-brand-dark rounded-2xl border border-brand-sage flex items-center justify-center text-2xl mx-auto mb-6 shadow-xs"><i class="fa-solid fa-utensils"></i></div>
+                <h3 class="text-xl font-bold text-brand-dark mb-3">Piatti Saporiti</h3>
+                <p class="text-sm text-brand-text/75 leading-relaxed">Ricette classiche della tradizione italiana preparate con ingredienti genuini.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-brand-soft/60 border border-brand-sage/50 text-center hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 bg-white text-brand-dark rounded-2xl border border-brand-sage flex items-center justify-center text-2xl mx-auto mb-6 shadow-xs"><i class="fa-solid fa-face-smile"></i></div>
+                <h3 class="text-xl font-bold text-brand-dark mb-3">Atmosfera Familiare</h3>
+                <p class="text-sm text-brand-text/75 leading-relaxed">Un locale caloroso, ideale per cene in famiglia o serate tra amici.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Orari e Contatti -->
+<section id="orari-contatti" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+            <div class="lg:col-span-5 bg-brand-soft rounded-3xl p-8 sm:p-10 border border-brand-sage/60 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo" class="h-12 w-auto object-contain">
+                        <span id="open-status-badge" class="px-3.5 py-1.5 rounded-full text-xs font-bold transition-all shadow-xs">
+                            <i class="fa-solid fa-circle text-[8px] mr-1.5"></i> Verifico stato...
+                        </span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-brand-dark mb-6">Orari di Apertura</h3>
+                    
+                    <div class="space-y-2 text-sm">
+                        <!-- Lunedì -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark/60">Lunedì</span>
+                            <span class="font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded text-xs">Chiuso</span>
+                        </div>
+                        <!-- Martedì -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Martedì</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                        <!-- Mercoledì -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Mercoledì</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                        <!-- Giovedì -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Giovedì</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                        <!-- Venerdì -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Venerdì</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                        <!-- Sabato -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Sabato</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                        <!-- Domenica -->
+                        <div class="flex justify-between py-2 border-b border-brand-sage/40">
+                            <span class="font-semibold text-brand-dark">Domenica</span>
+                            <span class="text-brand-text/80 text-xs sm:text-sm">12:00 - 15:00 | 18:00 - 23:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-brand-sage/60 flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-white border border-brand-sage flex items-center justify-center text-brand-dark"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <div class="text-xs text-brand-text/70">Prenotazioni Telefoniche</div>
+                        <a href="tel:+390332780155" class="font-bold text-brand-dark hover:underline">+39 0332 780155</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-brand-sage/60 flex flex-col justify-between shadow-xs">
+                <div>
+                    <span class="text-sm font-bold uppercase tracking-wider text-brand-dark/70 block mb-1">Vieni a Trovarci</span>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">Dove Siamo</h3>
+                    <p class="text-sm text-brand-text/80 mb-6">Siamo situati a Ispra, facilmente raggiungibili sia in auto che con i mezzi.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 rounded-xl bg-brand-soft/50 border border-brand-sage/40">
+                            <i class="fa-solid fa-location-dot text-brand-dark text-lg mb-2 block"></i>
+                            <div class="font-bold text-brand-dark text-sm">Indirizzo</div>
+                            <div class="text-xs text-brand-text/70">Via Roma 724, Ispra VA</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-soft/50 border border-brand-sage/40">
+                            <i class="fa-solid fa-square-parking text-brand-dark text-lg mb-2 block"></i>
+                            <div class="font-bold text-brand-dark text-sm">Parcheggio</div>
+                            <div class="text-xs text-brand-text/70">Riservato ai clienti nelle vicinanze</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-52 bg-brand-soft rounded-2xl border border-brand-sage overflow-hidden relative flex items-center justify-center group">
+                    <div class="absolute inset-0 bg-[radial-gradient(#BDD1C1_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+                    <div class="relative text-center p-4">
+                        <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center mx-auto mb-2 shadow-md"><i class="fa-solid fa-utensils"></i></div>
+                        <div class="font-bold text-brand-dark text-sm">Ristorante Pizzeria Setteduequattro</div>
+                        <div class="text-xs text-brand-text/70 mb-2">Via Roma 724, Ispra VA</div>
+                        <a href="https://www.google.com/maps/place/SETTEDUEQUATTRO+|+Pizza%26Cucina/@45.8116927,8.6181375,17z" target="_blank" class="inline-flex items-center text-xs font-bold text-brand-dark hover:underline">
+                            Apri su Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brand-dark text-white border-t border-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-3">
+                <img src="img/LOGO SETTEDUEQUATTRO.png" alt="Logo Footer" class="h-12 w-auto object-contain brightness-0 invert">
+                <p class="text-xs text-brand-sage/80 leading-relaxed">Gusto autentico, pizza di qualità e piatti tradizionali preparati con passione ogni giorno.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Link Rapidi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#home" class="hover:text-brand-sage transition-colors">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-brand-sage transition-colors">Menu</a></li>
+                    <li><a href="#chi-siamo" class="hover:text-brand-sage transition-colors">Chi Siamo</a></li>
+                    <li><a href="#orari-contatti" class="hover:text-brand-sage transition-colors">Orari &amp; Contatti</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Contatti</h4>
+                <ul class="space-y-2 text-xs text-brand-sage/90">
+                    <li><i class="fa-solid fa-location-dot mr-2"></i> Via Roma 724, Ispra VA</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +39 0332 780155</li>
+                    <li><i class="fa-solid fa-envelope mr-2"></i> settedue4@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-brand-sage">Seguici</h4>
+                <div class="flex space-x-3">
+                    <a href="https://www.instagram.com/settedue4/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage hover:text-brand-dark transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/SETTEDUEQUATTRO/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-sage hover:text-brand-dark transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-white/10 text-center text-xs text-brand-sage/60 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>© 2026 Ristorante Pizzeria Setteduequattro. Tutti i diritti riservati.</div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modale Prenotazione Modificata -->
+<div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition-opacity">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-brand-sage relative shadow-2xl">
+        <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-brand-soft flex items-center justify-center text-brand-dark hover:bg-brand-sage transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <div class="text-center mb-6">
+            <span class="text-sm font-bold uppercase tracking-wider text-brand-dark/70 block mb-1">Prenotazione Online</span>
+            <h3 class="text-2xl font-bold text-brand-dark">Prenota un Tavolo</h3>
+        </div>
+
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+            <!-- Nome e Cognome -->
+            <div>
+                <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Nome e Cognome</label>
+                <input type="text" name="nome" required="" placeholder="Mario Rossi" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+            </div>
+
+            <!-- Campo Email -->
+            <div>
+                <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Email</label>
+                <input type="email" name="email" required="" placeholder="mario.rossi@gmail.com" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+            </div>
+
+            <!-- Telefono e Ospiti -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Telefono</label>
+                    <input type="tel" name="telefono" required="" placeholder="+39 333 1234567" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Ospiti</label>
+                    <select name="ospiti" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                        <option value="2 Persone">2 Persone</option>
+                        <option value="3 Persone">3 Persone</option>
+                        <option value="4 Persone">4 Persone</option>
+                        <option value="5+ Persone">5+ Persone</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Data e Orario -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Data</label>
+                    <input type="date" name="data" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider mb-1">Orario</label>
+                    <select name="orario" required="" class="w-full px-4 py-3 rounded-xl border border-brand-sage focus:outline-none focus:ring-2 focus:ring-brand-dark text-sm bg-brand-soft/30">
+                        <option value="12:30">12:30 (Pranzo)</option>
+                        <option value="13:30">13:30 (Pranzo)</option>
+                        <option value="19:30">19:30 (Cena)</option>
+                        <option value="20:30">20:30 (Cena)</option>
+                        <option value="21:30">21:30 (Cena)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl font-bold text-white bg-brand-dark hover:bg-emerald-900 shadow-md transition-all text-sm mt-2">Conferma Prenotazione</button>
+        </form>
+
+        <div id="booking-success" class="hidden text-center py-6">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-check"></i></div>
+            <h4 class="text-xl font-bold text-brand-dark mb-2">Prenotazione Inviata!</h4>
+            <p class="text-xs text-brand-text/80 mb-6">Grazie! Ti abbiamo inviato una conferma via email.</p>
+            <button onclick="closeBookingModal()" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-dark text-xs">Chiudi</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        menu.classList.toggle('hidden');
+        if (menu.classList.contains('hidden')) {
+            icon.className = 'fa-solid fa-bars text-2xl';
+        } else {
+            icon.className = 'fa-solid fa-xmark text-2xl';
+        }
+    }
+
+    function openBookingModal() {
+        document.getElementById('booking-modal').classList.remove('hidden');
+        document.body.classList.add('modal-active');
+    }
+
+    function closeBookingModal() {
+        document.getElementById('booking-modal').classList.add('hidden');
+        document.body.classList.remove('modal-active');
+        setTimeout(() => {
+            document.getElementById('booking-form').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('hidden');
+            document.getElementById('booking-form').reset();
+        }, 300);
+    }
+
+    function handleBookingSubmit(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('booking-form');
+        const btn = document.getElementById('submit-btn');
+        const formData = new FormData(form);
+
+        btn.innerText = 'Invio in corso...';
+        btn.disabled = true;
+
+        fetch('/wp-content/themes/twentytwentyfive/invia.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore HTTP ' + response.status + ' (' + response.statusText + ')');
+            }
+            return response.text();
+        })
+        .then(data => {
+            btn.innerText = 'Conferma Prenotazione';
+            btn.disabled = false;
+            
+            if (data.trim() === "OK") {
+                document.getElementById('booking-form').classList.add('hidden');
+                document.getElementById('booking-success').classList.remove('hidden');
+            } else {
+                alert('Si è verificato un problema con l\'invio:\n\n' + data);
+            }
+        })
+        .catch(error => {
+            console.error('Errore durante la prenotazione:', error);
+            alert('Si è verificato un errore di connessione:\n' + error.message);
+            btn.innerText = 'Conferma Prenotazione';
+            btn.disabled = false;
+        });
+    }
+
+    // Calcolo dinamico dello stato di apertura del locale
+    function updateStoreStatus() {
+        const badge = document.getElementById('open-status-badge');
+        if (!badge) return;
+
+        const now = new Date();
+        const day = now.getDay(); // 0 = Domenica, 1 = Lunedì, ..., 6 = Sabato
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const currentTimeInMinutes = hour * 60 + minute;
+
+        // Lunedì (1) è giorno di chiusura
+        if (day === 1) {
+            setClosedBadge(badge, "Chiuso oggi (Lunedì)");
+            return;
+        }
+
+        // Fasce orarie: 12:00 - 15:00 (720-900m) e 18:00 - 23:00 (1080-1380m)
+        const lunchStart = 12 * 60;  
+        const lunchEnd = 15 * 60;    
+        const dinnerStart = 18 * 60; 
+        const dinnerEnd = 23 * 60;   
+
+        const isOpen = (currentTimeInMinutes >= lunchStart && currentTimeInMinutes < lunchEnd) || 
+                       (currentTimeInMinutes >= dinnerStart && currentTimeInMinutes < dinnerEnd);
+
+        if (isOpen) {
+            badge.className = "px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 animate-pulse";
+            badge.innerHTML = `<i class="fa-solid fa-circle text-[8px] mr-1.5 text-emerald-600"></i> Aperto Ora`;
+        } else {
+            setClosedBadge(badge, "Chiuso Ora");
+        }
+    }
+
+    function setClosedBadge(badge, text) {
+        badge.className = "px-3.5 py-1.5 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200";
+        badge.innerHTML = `<i class="fa-solid fa-circle text-[8px] mr-1.5 text-red-600"></i> ${text}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateStoreStatus);
+</script>
+</body>
+</html>
